@@ -61,3 +61,5 @@ jobs:
           user_name: 'elite0107'
           user_email: 'toptalent0107@gmail.com'
           repository: ${{ github.repository }}
+          REACT_APP_GOOGLE_BOOK_API_BASE_URL: ${{ secrets.REACT_APP_GOOGLE_BOOK_API_BASE_URL }}
+          REACT_APP_USER_KEY: ${{ secrets.REACT_APP_USER_KEY }}
