@@ -1,0 +1,63 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Deploy CI
+
+on:
+  push:
+    branches: ['master']
+  pull_request:
+    branches: ['master']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Build
+        run: |
+          yarn
+          yarn build
+        env:
+          REACT_APP_GOOGLE_BOOK_API_BASE_URL: ${{ secrets.REACT_APP_GOOGLE_BOOK_API_BASE_URL }}
+          REACT_APP_USER_KEY: ${{ secrets.REACT_APP_USER_KEY }}
+
+      - name: Run the tests
+        run: yarn test
+
+      - name: Create SSH Key
+        run: |
+          which ssh-agent || (sudo apk update && sudo apk add openssh-client)
+          which rsync || (sudo apk update && sudo apk add rsync)
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          touch ~/.ssh/private.key
+          chmod 600 ~/.ssh/private.key
+          echo -e "${{ secrets.SSH_DEPLOY_KEY }}" | tr -d '\r' > ~/.ssh/private.key
+
+      - name: Deploy
+        run: |
+          eval $(ssh-agent -s)
+          ssh-add ~/.ssh/private.key
+          git config --global user.name $user_name
+          git config --global user.email $user_email
+          git remote set-url origin git@github.com:${repository}.git
+          yarn deploy
+        env:
+          user_name: 'elite0107'
+          user_email: 'toptalent0107@gmail.com'
+          repository: ${{ github.repository }}
