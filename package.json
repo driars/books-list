@@ -2,7 +2,7 @@
   "name": "sonra-book",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://elite0107.github.io/books-list",
+  "homepage": "https://driars.github.io/books-list",
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@reduxjs/toolkit": "^1.9.5",
