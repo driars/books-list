@@ -39,9 +39,6 @@ jobs:
       - name: Run the tests
         run: yarn test
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-
       - name: Create SSH Key
         run: |
           which ssh-agent || (sudo apk update && sudo apk add openssh-client)
@@ -61,8 +58,8 @@ jobs:
           git remote set-url origin git@github.com:${repository}.git
           yarn deploy
         env:
-          user_name: 'elite0107'
-          user_email: 'toptalent0107@gmail.com'
+          user_name: 'elite301'
+          user_email: 'toptalent0301@gmail.com'
           repository: ${{ github.repository }}
           REACT_APP_GOOGLE_BOOK_API_BASE_URL: ${{ secrets.REACT_APP_GOOGLE_BOOK_API_BASE_URL }}
           REACT_APP_USER_KEY: ${{ secrets.REACT_APP_USER_KEY }}
