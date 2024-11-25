@@ -7,7 +7,7 @@
   <p align="center">
     A React, Redux, and TypeScript application that allows users to search for and display details of books using Google Book API.
     <br />
-    <a href="https://driars.github.io/books-list"><strong>Go to the home page »</strong></a>
+    <a href="https://elite301.github.io/books-list"><strong>Go to the home page »</strong></a>
     <br />
   </p>
 </div>
@@ -69,14 +69,14 @@ This application allows users to search and show details of the books from Googl
 ## Getting Started
 
 Deployed website:
-[https://driars.github.io/books-list](https://driars.github.io/books-list)
+[https://elite301.github.io/books-list](https://elite301.github.io/books-list)
 
 ### Installation
 
 1. Get a free Google Book API Key from your Google account.
 2. Clone the repo
    ```sh
-   git clone https://github.com/driars/books-list.git
+   git clone https://github.com/elite301/books-list.git
    ```
 3. Install NPM packages
    ```sh
@@ -136,7 +136,7 @@ So when developers push codes or make a pull request to `master` branch, `Github
 - [x] Save user's last search and pagination in local storage to save and restore history
 - [x] Implement unit, integration and e2e testing by Jest and Cypress
 - [x] Build CI/CD pipeline by github actions and github pages
-- [x] Deploy the website to [https://driars.github.io/books-list](https://driars.github.io/books-list)
+- [x] Deploy the website to [https://elite301.github.io/books-list](https://elite301.github.io/books-list)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -146,7 +146,7 @@ So when developers push codes or make a pull request to `master` branch, `Github
 
 elite0301 - toptalent0301@gmail.com
 
-Project Link: [https://github.com/driars/books-list](https://github.com/driars/books-list)
+Project Link: [https://github.com/elite301/books-list](https://github.com/elite301/books-list)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
